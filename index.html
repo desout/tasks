@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h2>First task</h2>
+<input type="text" name="name" id="name_input" value="Xxxx">
+<h2>Second task</h2>
+<form action="#" onsubmit="function d(data){console.log(data)}">
+  <div class="item__size">
+    <span>size</span>
+    <label>S<input type="radio" name='size' value='S'></label>
+    <label>M<input type="radio" name='size' value='M'></label>
+    <label>L<input type="radio" name='size' value='L'></label>
+  </div>
+  <div class="item__color">
+    <span>color</span>
+    <label>1<input type="checkbox" name='color' value="1"></label>
+    <label>2<input type="checkbox" name='color' value="2"></label>
+    <label>3<input type="checkbox" name='color' value="3"></label>
+    <label>4<input type="checkbox" name='color' value="4"></label>
+    <label>5<input type="checkbox" name='color' value="5"></label>
+  </div>
+  <div class="item__manufacturer">
+    <span>manufacturer</span>
+    <label>
+      manufacturer
+      <select multiple name="manufacturer">
+        <option value="aaa">aaa</option>
+        <option value="b and c">b and c</option>
+        <option value="ddd">ddd</option>
+        <option value="eee">eee</option>
+      </select>
+    </label>
+  </div>
+  <div class="item__sales">
+    <span>sales</span>
+    <label>is sale <input type="checkbox" value='1' name="sales"></label>
+  </div>
+</form>
+<h2>Fourth/Fifth task</h2>
+<iframe src="./iframeTemplate.html" width="300px" height="300px"></iframe>
+
+
+<script src="js/firstTask.js"></script>
+<script src="js/secondTask.js"></script>
+<script src="js/thirdTask.js"></script>
+<script src="js/fourthFifthTasks.js"></script>
+</body>
+</html>

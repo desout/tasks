@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iframe</title>
+</head>
+<body>
+  <h1>Inner frame</h1>
+
+  <script type="text/javascript">
+      window.onmessage = (e) => {
+          const payload = JSON.parse(e.data);
+          const parent = window.parent;
+          let returnPayload = {};
+          switch(payload.method) {
+              case 'set':
+                  localStorage.setItem(payload.key, JSON.stringify(payload.data));
+                   returnPayload = {
+                      method: 'storage#set'
+                  }
+                  parent.postMessage(JSON.stringify(returnPayload), '*');
+                  break;
+              case 'get':
+                  const data = localStorage.getItem(payload.key);
+                   returnPayload = {
+                      method: 'storage#get',
+                      data: data
+                  }
+                  parent.postMessage(JSON.stringify(returnPayload), '*');
+                  break;
+              case 'remove':
+                  localStorage.removeItem(payload.key);
+                  returnPayload = {
+                      method: 'storage#remove'
+                  }
+                  parent.postMessage(JSON.stringify(returnPayload), '*');
+                  break;
+          }
+          if(payload.callback){
+              eval(`(${payload.callback})()`);
+          }
+      };
+  </script>
+</body>
+</html>
